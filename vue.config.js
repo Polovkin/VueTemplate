@@ -4,9 +4,6 @@ const imageminMozjpeg = require('imagemin-mozjpeg')
 const imageMinPngquant = require('imagemin-pngquant');
 
 module.exports = {
-    // configureWebpack: (config) => {
-    //     config.devtool = 'source-map'
-    // },
     configureWebpack: {
         devtool: 'source-map',
         plugins: [
@@ -23,17 +20,16 @@ module.exports = {
             })
         ]
     },
-    pluginOptions: {
-        'style-resources-loader': {
-            preProcessor: 'scss',
-            patterns: [
-                path.resolve(__dirname, './src/assets/scss/core/base.scss'),
-            ]
-        },
-    },
     assetsDir: 'assets',
     productionSourceMap: false,
+
     css: {
         sourceMap: true,
+
+        loaderOptions: {
+            scss: {
+                additionalData : `@import "~@/assets/scss/core/base.scss";`
+            },
+        }
     }
 }

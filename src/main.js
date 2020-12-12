@@ -1,21 +1,7 @@
-
-
-import 'normalize.css'
-import "./assets/scss/app.scss";
-
-
-
-import Vue from 'vue'
+import { createApp } from 'vue'
 import App from './App.vue'
-import router from './router/routes'
+import './registerServiceWorker'
+import router from './router'
 import store from './store'
-//import './firebase.config.js'
 
-
-Vue.config.productionTip = false
-
-new Vue({
-    router,
-    store,
-    render: h => h(App)
-}).$mount('#app')
+createApp(App).use(store).use(router).mount('#app')
