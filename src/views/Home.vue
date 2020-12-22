@@ -1,6 +1,6 @@
 <template>
-  <div class="home">
-    <h1>Home</h1>
+  <div class="container">
+    <div class="elem"></div>
   </div>
 </template>
 
@@ -13,16 +13,73 @@ export default {
 }
 </script>
 <style lang="scss">
-h1 {
-  color: $color__primary;
-  @include breakpoint($phone__all) {
-    color: green;
+.container {
+  position: relative;
+  background-color: red;
+  color: #fff;
+  &:after {
+    @include breakpoint($width__desktop-hd-min) {
+   content: 'max width: #{$max-width__desktop-hd-min} width togge: #{$width__desktop-hd-min}';
+
+    }
+    @include breakpoint($width__desktop-min) {
+      content: 'max width: #{$max-width__desktop-min}  width togge: #{$width__desktop-min}';
+    }
+    @include breakpoint($width__tablet-land) {
+      content: 'max width: #{$max-width__tablet-land}  width togge: #{$width__tablet-land}';
+    }
+    @include breakpoint($width__tablet-port) {
+      content: 'max width: #{$max-width__tablet-port}  width togge: #{$width__tablet-port}';
+    }
+    @include breakpoint($width__mobile-max) {
+      content: 'max width: #{$max-width__mobile-max}  width togge: #{$width__mobile-max}';
+    }
   }
-  @include breakpoint($tablet__all) {
-    color: #42b983;
+}
+.elem {
+  position: relative;
+
+
+  &:after {
+    color: $color__light;
+    font-weight: bold;
+    padding: 20px;
+    display: block;
+    text-transform: uppercase;
+    background-color: red;
+    @include breakpoint($desktop__all) {
+      content: 'desktop__all #{$desktop__all}';
+      background-color: rebeccapurple;
+    }
+    @include breakpoint($desktop__laptop) {
+      content: 'desktop__laptop #{$desktop__laptop}';
+      background-color: aqua;
+    }
+    @include breakpoint($desktop__laptop-min) {
+      content: 'desktop__laptop-min #{$desktop__laptop-min}';
+      background-color: tomato;
+    }
+    //@include breakpoint($tablet__all) {
+    //  content: 'tablet__all #{$tablet__all}';
+    //  background-color: saddlebrown;
+    //}
+    @include breakpoint($tablet__landscape) {
+      content: 'tablet__landscape #{$tablet__landscape}';
+      background-color: blue;
+    }
+    @include breakpoint($tablet__portrait) {
+      content: 'tablet__portrait #{$tablet__portrait}';
+      background-color: forestgreen;
+    }
+    @include breakpoint($phone__all) {
+      content: 'phone__all #{$phone__all}';
+      background-color: sandybrown;
+    }
+    @include breakpoint($phone__landscape) {
+      content: '$phone__landscape #{$phone__landscape}';
+      background-color: khaki;
+    }
   }
-  @include breakpoint($desktop__laptop) {
-    color: #2c3e50;
-  }
+
 }
 </style>
