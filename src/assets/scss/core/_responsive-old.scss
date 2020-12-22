@@ -1,0 +1,69 @@
+//Breakpoints
+$width__desktop-hd            : 1920px;
+
+$width__desktop-hd-min        : 1600px;
+$max-width__desktop-hd-min    : 1440px;
+
+$width__laptop                : 1366px;
+//XL
+$width__laptop-min            : 1200px;
+$max-width__desktop-min       : 1140px;
+// LG
+$width__tablet-land           : 1024px;
+$max-width__tablet-land       : 960px;
+//MD
+$width__tablet-port           : 768px;
+$max-width__tablet-port       : 720px;
+//SM
+$width__mobile-max            : 576px;
+$max-width__mobile-max        : 540px;
+//XS
+$width__mobile-min            : 320px;
+//Min
+$width__min                   : 100px;
+
+$mobile__all                  : $width__min            $width__tablet-land;
+$portrait__all                : $width__min            $width__tablet-land;
+
+
+$desktop__all                 : $width__laptop-min;
+$desktop__laptop              : $width__laptop-min    $width__desktop-hd-min;
+$desktop__laptop-min          : ($width__laptop-min   $width__laptop) (max-height ($width__tablet-port - 1) );
+
+$tablet__all                  : ($width__tablet-port   ($width__laptop-min - 1)) (orientation portrait);
+$tablet__landscape            : ($width__tablet-land   1366px) (orientation landscape) (min-resolution 2dppx);
+
+$tablet__all                  : ($width__tablet-port   $width__laptop) ;
+$tablet__landscape            : ($width__tablet-land $width__laptop) (orientation landscape);
+
+$tablet__portrait             : $width__tablet-port    $width__tablet-land ;
+
+$phone__all                   : $width__min            ($width__tablet-port - 1);
+$phone__landscape             : $portrait__all         (max-height 450px);
+$phone__small                 : $width__min            $width__mobile-min;
+
+.container {
+  flex: 0 0 auto;
+  margin: 0 auto;
+  padding: 0 15px;
+  width: 100%;
+  transition: all $animation-fast;
+  @include breakpoint($width__desktop-hd + 1) {
+    max-width: 1600px;
+  }
+  @include breakpoint($width__desktop-hd-min) {
+    max-width: $width__desktop-hd-min;
+  }
+  @include breakpoint($width__laptop-min) {
+    max-width: $max-width__desktop-min;
+  }
+  @include breakpoint($width__tablet-land) {
+    max-width: $max-width__tablet-land;
+  }
+  @include breakpoint($width__tablet-port) {
+    max-width: $max-width__tablet-port;
+  }
+  @include breakpoint($width__mobile-max) {
+    max-width: $max-width__mobile-max;
+  }
+}
