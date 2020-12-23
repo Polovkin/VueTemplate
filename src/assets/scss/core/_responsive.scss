@@ -42,8 +42,8 @@ $var-tablet__large            : ($width__tablet-land   $width__laptop) (height 8
 $var-tablet__small            : ($width__tablet-port   $width__laptop-min) (orientation landscape);
 
 $tablet__all                  :  $width__tablet-port   $width__laptop-min ;
-$tablet__landscape            :  ($width__tablet-land, $width__laptop-min) (min-resolution 1dppx) (orientation landscape);
-$tablet__portrait             :  ($width__tablet-port  $width__tablet-land) (min-resolution 1dppx) (orientation portrait);
+$tablet__landscape            :  ($width__tablet-land, $width__laptop-min)  (orientation landscape);
+$tablet__portrait             :  ($width__tablet-port  $width__tablet-land) (orientation portrait);
 
 $phone__all                   : $width__min            ($width__tablet-port - 1);
 $phone__landscape             : $portrait__all         (max-height 450px);

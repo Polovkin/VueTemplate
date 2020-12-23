@@ -65,17 +65,19 @@ export default {
       background-color: tomato;
     }
     @include breakpoint($tablet__all) {
-      content: 'tablet__all #{$tablet__all}';
-      background-color: saddlebrown;
+
+      display: flex;
     }
 
     @include breakpoint($tablet__landscape) {
       content: 'tablet__landscape #{$tablet__landscape}';
       background-color: blue;
+      flex-direction: row;
     }
     @include breakpoint($tablet__portrait) {
       content: 'tablet__portrait #{$tablet__portrait}';
       background-color: forestgreen;
+      flex-direction: column;
     }
     @include breakpoint($phone__all) {
       content: 'phone__all #{$phone__all}';
