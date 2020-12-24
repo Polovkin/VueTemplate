@@ -38,10 +38,11 @@ $desktop__laptop              : $width__laptop-min    $width__desktop-hd-min;
 $desktop__laptop-min          : ($width__laptop-min   $width__laptop) (max-height ($width__tablet-port - 1) );
 
 //Tablet
-$var-tablet__large            : ($width__tablet-land   $width__laptop) (height 800px 1024px) (orientation landscape) ;
-$var-tablet__small            : ($width__tablet-port   $width__laptop-min) (orientation landscape);
+$var-tablet__large            : ($width__laptop-min   $width__laptop) (height 800px 1024px) (orientation landscape) ;
+$var-tablet__small            : ($width__laptop-min   $width__laptop-min) (orientation landscape);
 
 $tablet__all                  :  $width__tablet-port   $width__laptop-min ;
+$tablet__landscape-large      :  $var-tablet__large,$var-tablet__small;
 $tablet__landscape            :  ($width__tablet-land, $width__laptop-min)  (orientation landscape);
 $tablet__portrait             :  ($width__tablet-port  $width__tablet-land) (orientation portrait);
 

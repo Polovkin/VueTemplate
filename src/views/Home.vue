@@ -57,30 +57,31 @@ export default {
     //  background-color: rebeccapurple;
     //}
     @include breakpoint($desktop__laptop) {
-      content: 'desktop__laptop #{$desktop__laptop}';
+      content: 'desktop__laptop';
       background-color: aqua;
     }
     @include breakpoint($desktop__laptop-min) {
-      content: 'desktop__laptop-min #{$desktop__laptop-min}';
+      content: 'desktop__laptop-min';
       background-color: tomato;
     }
     @include breakpoint($tablet__all) {
-
-      display: flex;
+      content: 'tablet__all';
+      background-color: #2c7967;
     }
-
+    @include breakpoint($tablet__landscape-large) {
+      content: 'tablet__landscape large';
+      background-color: #832c7f;
+    }
     @include breakpoint($tablet__landscape) {
-      content: 'tablet__landscape #{$tablet__landscape}';
+      content: 'tablet__landscape';
       background-color: blue;
-      flex-direction: row;
     }
     @include breakpoint($tablet__portrait) {
-      content: 'tablet__portrait #{$tablet__portrait}';
+      content: 'tablet__portrait';
       background-color: forestgreen;
-      flex-direction: column;
     }
     @include breakpoint($phone__all) {
-      content: 'phone__all #{$phone__all}';
+      content: 'phone__all';
       background-color: sandybrown;
     }
     //@include breakpoint($phone__landscape) {
