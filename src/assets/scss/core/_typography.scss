@@ -1,13 +1,12 @@
 $font__line-height: auto;
-$font__size: 18px;
 $font__weight: normal;
-$font__family: 'SourceCodePro';
+$font__family: 'Roboto';
 $font__style: sans-serif;
-$font__file-name: 'SourceCodePro-';
-$font__path: '~@/assets/fonts/#{$font__file-name}';
+$font__file-name: 'Roboto-';
+$font__path: '~assets/fonts/#{$font__file-name}';
 $font__ext: (woff2, woff);
 $font__types: (
-                ('Light', 300, normal),
+                ('Medium', 500, normal),
                 ('Bold', bold, normal),
                 ('Regular', normal, normal),
 );
@@ -15,7 +14,6 @@ $font__types: (
 @each $name, $weight, $style in $font__types {
   @include font-face($font__family, $font__path+$name, $weight, $style, $font__ext);
 }
-
 
 html {
   font-size: $font__size;
@@ -44,7 +42,7 @@ body {
   margin: 0;
   padding: 0;
 
-  color: $color__font--primary;
+  color: $color__font--secondary;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -89,86 +87,6 @@ a {
   }
 }
 
-p:last-of-type {
-  margin-bottom: 0;
-}
-
-h1 {
-  h2 {
-    font-size: 45px;
-    line-height: 60px;
-
-    @include breakpoint($tablet__all) {
-      font-size: 34px;
-      line-height: 46px;
-    }
-    @include breakpoint($phone__all) {
-      font-size: 30px;
-      line-height: 40px;
-    }
-
-    span {
-      font-size: 70px;
-      line-height: 94px;
-
-      @include breakpoint($tablet__all) {
-        font-size: 53px;
-        line-height: 70px;
-      }
-      @include breakpoint($phone__all) {
-        font-size: 45px;
-        line-height: 60px;
-      }
-    }
-  }
-
-  p {
-    font-size: 30px;
-    line-height: 40px;
-
-    @include breakpoint($tablet__all) {
-      font-size: 22px;
-      line-height: 30px;
-    }
-    @include breakpoint($phone__all) {
-      font-size: 20px;
-      line-height: 27px;
-    }
-  }
-}
-
-h2 {
-  font-size: 50px;
-  line-height: 67px;
-
-  @include breakpoint($tablet__all) {
-    font-size: 35px;
-    line-height: 47px;
-  }
-  @include breakpoint($phone__all) {
-    font-size: 30px;
-    line-height: 40px;
-  }
-}
-
-h3 {
-  font-size: 30px;
-  line-height: 40px;
-
-  @include breakpoint($phone__all) {
-    font-size: 25px;
-    line-height: 33px;
-  }
-}
-
-p {
-  font-size: 20px;
-  line-height: 33px;
-
-  @include breakpoint($mobile__all) {
-    line-height: 27px;
-  }
-}
 
 a {
   font-size: 20px;
@@ -180,5 +98,155 @@ a {
   }
 }
 
+main {
+  overflow: hidden;
+}
 
 
+img {
+  max-width: 100%;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+button {
+  font: inherit;
+
+  padding: 0;
+
+  cursor: pointer;
+
+  color: inherit;
+  border: none;
+  background-color: transparent;
+}
+
+button:hover,
+input[type='button']:hover,
+input[type='reset']:hover,
+input[type='submit']:hover {
+  outline: 0;
+}
+
+button:active,
+button:focus,
+input[type='button']:active,
+input[type='button']:focus,
+input[type='reset']:active,
+input[type='reset']:focus,
+input[type='submit']:active,
+input[type='submit']:focus {
+  outline: 0;
+}
+
+
+select {
+  border: 1px solid #ccc;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+embed,
+iframe,
+object,
+textarea {
+  width: 100%;
+}
+
+form {
+  label {
+    display: block;
+    width: 100%;
+  }
+
+  input, textarea {
+    width: inherit;
+    font-family: $font__family;
+    font-size: rem($font__size);
+
+    color: $color__font--primary;
+  }
+}
+
+label {
+  display: block;
+}
+
+input {
+  box-shadow: none;
+  outline: none;
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:hover {
+    -webkit-box-shadow: 0 0 0 1000px white inset !important;
+  }
+
+  &[type='text'],
+  &[type='email'],
+  &[type='url'],
+  &[type='password'],
+  &[type='search'],
+  &[type='number'],
+  &[type='tel'],
+  &[type='range'],
+  &[type='date'],
+  &[type='month'],
+  &[type='week'],
+  &[type='time'],
+  &[type='datetime'],
+  &[type='datetime-local'],
+  &[type='color'] {
+    width: 100%;
+
+    outline: 0;
+
+    &:focus {
+      outline: 0;
+    }
+  }
+}
+
+textarea {
+  width: 100%;
+
+  outline: 0;
+  resize: none;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+.container {
+  flex: 0 0 auto;
+  margin: 0 auto;
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+  transition: all $animation-fast;
+  @include breakpoint(min-width $width__desktop-hd + 1) {
+    max-width: $width__desktop-hd-min;
+  }
+  @include breakpoint(min-width $width__desktop-hd-min) {
+    max-width: $max-width__desktop-hd-min;
+  }
+  @include breakpoint(min-width $width__laptop-min) {
+    max-width: $max-width__desktop-min;
+  }
+  @include breakpoint(min-width $width__tablet-land) {
+    max-width: $max-width__tablet-land;
+  }
+  @include breakpoint(min-width $width__tablet-port) {
+    max-width: $max-width__tablet-port;
+  }
+  @include breakpoint(min-width $width__mobile-max) {
+    max-width: $max-width__mobile-max;
+  }
+}

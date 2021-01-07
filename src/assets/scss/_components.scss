@@ -1,3 +1,21 @@
-@import "components/buttons";
-@import "components/forms";
-@import "utils/shapes";
+//Buttons
+
+button {
+
+
+}
+
+label {
+  color: $input__font-color;
+  font-size: $input__font-size;
+}
+
+input {
+  outline: none !important;
+  color: inherit;
+  font-size: inherit;
+
+  &::placeholder {
+    color: $input__placeholder-color;
+  }
+}
