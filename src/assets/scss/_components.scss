@@ -14,7 +14,6 @@ input {
   outline: none !important;
   color: inherit;
   font-size: inherit;
-
   &::placeholder {
     color: $input__placeholder-color;
   }

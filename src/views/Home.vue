@@ -52,10 +52,7 @@ export default {
     text-transform: uppercase;
     background-color: red;
     font-size: 40px;
-    //@include breakpoint($desktop__all) {
-    //  content: 'desktop__all #{$desktop__all}';
-    //  background-color: rebeccapurple;
-    //}
+
     @include breakpoint($desktop__laptop) {
       content: 'desktop__laptop';
       background-color: aqua;
@@ -80,14 +77,7 @@ export default {
       content: 'tablet__portrait';
       background-color: forestgreen;
     }
-    @include breakpoint($phone__all) {
-      content: 'phone__all';
-      background-color: sandybrown;
-    }
-    //@include breakpoint($phone__landscape) {
-    //  content: '$phone__landscape #{$phone__landscape}';
-    //  background-color: khaki;
-    //}
+
   }
 
 }
